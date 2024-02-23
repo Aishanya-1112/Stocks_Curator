@@ -1,3 +1,6 @@
 yfinance
 tensorflow
 matplotlib
+sklearn
+numpy
+pandas
