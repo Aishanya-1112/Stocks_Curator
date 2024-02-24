@@ -1,6 +1,8 @@
 yfinance
 tensorflow
 matplotlib
+keras
+h5py
 scikit-learn
 numpy
 pandas
