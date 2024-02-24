@@ -107,7 +107,7 @@ body{
 st.markdown(head1, unsafe_allow_html=True)
 
 # Load the model
-model = load_model('Stock Predictions Model-1.keras')
+model = load_model('Stock-Predictions-Model.keras')
 
 stock_input = st.text_input('Enter Stock Symbol', 'GOOG')
 
