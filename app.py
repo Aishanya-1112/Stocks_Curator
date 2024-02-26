@@ -166,7 +166,7 @@ if st.button('Show Predictions'):
 
             # Display stock data solo
             st.subheader(f'Stock Data: {stock_input}')
-            st.write(data)
+            st.write(data[::-1])
             st.markdown("""
                 <style>
                     table {
