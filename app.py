@@ -107,7 +107,7 @@ body{
 st.markdown(head1, unsafe_allow_html=True)
 
 # Load the model
-model = load_model('Stock_Predictions_Model.keras')
+model = load_model('Stock-Predictions-Model-1.h5')
 
 stock_input = st.text_input('Enter Stock Symbol', 'GOOG')
 
@@ -166,7 +166,7 @@ if st.button('Show Predictions'):
 
             # Display stock data solo
             st.subheader(f'Stock Data: {stock_input}')
-            st.write(data[::-1])
+            st.write(data)
             st.markdown("""
                 <style>
                     table {
@@ -178,7 +178,7 @@ if st.button('Show Predictions'):
             """, unsafe_allow_html=True)
 
             # Organize the layout for the graphs in a 3x1 grid
-            col1, col2, col3 = st.columns(3)
+            col1, col2 = st.columns(2)
 
             # Display Price vs MA50 graph
             with col1:
@@ -201,30 +201,6 @@ if st.button('Show Predictions'):
                 ax3.legend()
                 st.pyplot(fig3)
 
-            # Display Original Price vs Predicted Price graph
-            with col3:
-                x = []
-                y = []
-
-                for i in range(100, data_test_scale.shape[0]):
-                    x.append(data_test_scale[i - 100:i])
-                    y.append(data_test_scale[i, 0])
-
-                x, y = np.array(x), np.array(y)
-
-                predict = model.predict(x)
-
-                scale = 1 / scaler.scale_
-
-                predict = predict * scale
-                y = y * scale
-
-                st.subheader('Original Price vs Predicted Price')
-                fig4, ax4 = plt.subplots(figsize=(6.972, 5.528))
-                ax4.plot(predict, 'r', label='Predicted Price')
-                ax4.plot(y, 'g', label='Original Price')
-                ax4.legend()
-                st.pyplot(fig4)
 
             window_size_short = 2
             window_size_long = 4
