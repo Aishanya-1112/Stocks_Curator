@@ -48,7 +48,7 @@ st.markdown(container_style, unsafe_allow_html=True)
 # Create the container with the link button
 st.markdown("""
 <div class='container'>
-    <a class='link-button' href='https://streamlit.io/gallery'>Log Out</a>
+    <a class='link-button' href='https://aishanya-1112.github.io/Recommendation-System/landing.html'>Log Out</a>
 </div>
 """, unsafe_allow_html=True)
 
